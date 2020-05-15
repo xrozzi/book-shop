@@ -1,0 +1,17 @@
+<h1>Musician Market</h1>
+
+<%= link_to "Sell Instrument", new_listing_path %>
+
+<%# the best way to access some information from the controller
+inside the view is to use an instance variables 
+eg. @listing %>
+
+<ul>
+    <% for listing in @listings %>
+    <li>
+        <%= link_to "#{listing.title} - #{number_to_currency(listing.price)}",
+         listing_path(listing.id) %>
+    </li>
+    <% end %>
+</ul>
+
