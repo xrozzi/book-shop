@@ -1,6 +1,7 @@
 <h1>Musician Market</h1>
 
 <%= link_to "Sell Instrument", new_listing_path %>
+<button data-stripe="donate">Donate $10</button>
 
 <%# the best way to access some information from the controller
 inside the view is to use an instance variables 
@@ -15,3 +16,17 @@ eg. @listing %>
     <% end %>
 </ul>
 
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document
+    .querySelector("[data-stripe='donate']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      );
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+</script>

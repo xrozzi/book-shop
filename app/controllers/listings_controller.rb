@@ -1,78 +1,86 @@
 class ListingsController < ApplicationController
-
     before_action :authenticate_user!
+    before_action :get_users_listing, only: [:edit, :update, :destroy]
 
     def index
-
         @listings = Listing.all
-
+        generate_stripe_session
     end
-
+    
     def new
         @listing = Listing.new
     end
 
     def create
-        # to check for errors we will create an instance variable
         @listing = current_user.listings.create(listing_params)
-        if @listing.errors.any?
-            render "new"
-        else
-             redirect_to listings_path
-        end
+        rerender_if_error("new")
     end
 
     def edit 
-        #user can edit: only if the current user has created the listing
-        # this line will do the work but will throw an error if the user didn't
-        # create the listing
-        # @listing = current_user.listings.find(params["id"])
-
-        # this line will do the work and redirect us to the list of listings
-        @listing = current_user.listings.find_by_id(params["id"])
         if @listing
-            render ("edit")
-        else
+            render("edit")
+        else  
             redirect_to listings_path
         end
     end
-
 
     def update
-        @listing = current_user.listings.find_by_id(params["id"])
-
         if @listing
             @listing.update(listing_params)
-            if @listing.errors.any?
-                render "edit"
-            else
-            redirect_to listings_path
-            end
-        else
+            rerender_if_error("edit")
+        else 
             redirect_to listings_path
         end
     end
-
 
     def show
         @listing = Listing.find(params["id"])
     end
 
     def destroy
-        @listing = current_user.listings.find_by_id(params["id"])
-
         if @listing
             @listing.destroy
         end
         redirect_to listings_path
     end
 
+
     private
-    
     def listing_params
-        #it saying that we're only going to accept those 4 params
-        #different from listing.rb 
-        params.require(:listing).permit(:title, :description, :price, :picture)
+        params.require(:listing).permit(:title, :price, :description, :picture)
     end
 
+    def generate_stripe_session
+        session = Stripe::Checkout::Session.create(
+            payment_method_types: ['card'],
+            customer_email: current_user.email,
+            line_items: [{
+                name: "Donate to Musician Marketplace!",
+                currency: 'aud',
+                quantity: 1,
+                amount: 1000
+            }],
+            payment_intent_data: {
+                metadata: {
+                    user_id: current_user.id,
+                }
+            },
+            success_url: "#{root_url}pages/donated?userId=#{current_user.id}",
+            cancel_url: "#{root_url}"
+        )
+
+        @session_id = session.id
+    end
+
+    def rerender_if_error(template_name)
+        if @listing.errors.any?
+            render template_name
+        else
+            redirect_to listings_path
+        end
+    end
+
+    def get_users_listing
+        @listing = current_user.listings.find_by_id(params["id"])
+    end
 end
