@@ -1,0 +1,14 @@
+  <div class="topnav">
+            <a class="active"><%= link_to "BookShop", root_path, class:"navbar-brand" %></a>
+            <a><%= link_to "Sign Up", new_user_registration_path %></a>
+            <% if user_signed_in? %>
+            <a><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
+            <% else %>	
+            <a><%= link_to "Log In", new_user_session_path %></a>
+            <% end %>
+            <% if user_signed_in? %>
+            <a><%= link_to 'Books', listings_path %></a>
+            <a><%= link_to 'Add Book', new_listing_path %></a>
+            <% end %>
+    </div>
+          

@@ -55,10 +55,10 @@ class ListingsController < ApplicationController
             payment_method_types: ['card'],
             customer_email: current_user.email,
             line_items: [{
-                name: "Donate to Musician Marketplace!",
+                name: "Donate to BookShop",
                 currency: 'aud',
                 quantity: 1,
-                amount: 1000
+                amount: 2000
             }],
             payment_intent_data: {
                 metadata: {

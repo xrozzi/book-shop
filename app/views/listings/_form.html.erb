@@ -1,3 +1,5 @@
+<div class=form-container>
+
 <%# display errors to user %>
 <% if listing.errors.any? %>
     <ul>
@@ -15,15 +17,17 @@
     <%= form.text_field :title, value: listing.title %>
 </div>
 
-<div>
-    <%= form.label :description %>
-    <%= form.text_area :description, value: listing.description %>
-</div>
 
 <div>
     <%= form.label :price %>
     <%= form.number_field :price, value: listing.price, min: 0 %>
 </div>
+
+<div>
+    <%= form.label :description %>
+    <%= form.text_area :description, value: listing.description %>
+</div>
+
 
 <div>
     <%= form.label :picture %>
@@ -36,3 +40,5 @@
 </div>
 
 <% end %>
+
+</div>

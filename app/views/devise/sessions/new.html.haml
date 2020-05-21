@@ -1,0 +1,27 @@
+%h2.title.is-3 Login
+%hr
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .field
+    = f.label "Email", class: "label"
+    .control
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+
+  .field
+    = f.label "Password", class: "label"
+    .control
+      = f.password_field :password, autocomplete: "off", class: "input"
+
+  - if devise_mapping.rememberable?
+    .field
+      .control
+        = f.label class: "checkbox" do
+          = f.check_box :remember_me
+          %span Remember me
+
+
+  .has-text-right
+    = f.submit "Log in", class: "button is-primary"
+
+
+= render "devise/shared/links" 

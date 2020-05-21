@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BookShop
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+
+    .hero
+      .hero-body
+        .columns
+          .column.is-half.is-offset-one-quarter
+            .has-text-centered.mb20
+              %h1.title.is-1.title-header
+                = link_to "BookShop", listings_path
+            .card
+              .card-content
+                = yield
