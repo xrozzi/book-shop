@@ -9,15 +9,15 @@ GitHub repository: https://github.com/xrozzi/book-shop
 
 BookShop is a two sided marketplace for people to buy new and second hand books.
 
-![home_page](app/assest/images/home.png)
+![home_page](app/assests/images/home.png)
 
-![home_page](app/assest/images/home2.png)
+![home_page](app/assests/images/home2.png)
 
-![signup_page](app/assest/images/signup.png)
+![signup_page](app/assests/images/signup.png)
 
-![books_page](app/assest/images/books.png)
+![books_page](app/assests/images/books.png)
 
-![donate_page](app/assest/images/donate2.png)
+![donate_page](app/assests/images/donate2.png)
 
 
 ##### Target Audience
@@ -123,20 +123,20 @@ To explain better BookShop I will use Book instead of Listing
 
 The User model has user_id and an email as atrributes. The user_id is needed to create a book listing. A User has_many Books
 
-![user_table](app/assest/images/usertable.png)
+![user_table](app/assests/images/usertable.png)
 
 The Book model has title, price, description, picture and foreign key(user_id. The foreign key let us know which user created the book listing.
 A Book belongs_to to a User
 
-![book_table](app/assest/images/booktable.png)
+![book_table](app/assests/images/booktable.png)
 
 ##### 6. Provide your database schema design.
 
-![bookshop_erd](app/assest/images/bookshop-erd.png)
+![bookshop_erd](app/assests/images/bookshop-erd.png)
 
-![book_schema](app/assest/images/book-schema.png)
+![book_schema](app/assests/images/book-schema.png)
 
-![user_schema](app/assest/images/users-schema.png)
+![user_schema](app/assests/images/users-schema.png)
 
 ##### 7. Provide User stories for your App.
 
@@ -155,13 +155,13 @@ A Book belongs_to to a User
 
 ##### 8. Provide Wireframes for your App.
 
-![home-wire](app/assest/images/home-wire.png)
+![home-wire](app/assests/images/home-wire.png)
 
-![home-wire2](app/assest/images/home-wire2.png)
+![home-wire2](app/assests/images/home-wire2.png)
 
-![home-wire3](app/assest/images/home-wire3.png)
+![home-wire3](app/assests/images/home-wire3.png)
 
-![Signup-wire](app/assest/images/Signup-wire.png)
+![Signup-wire](app/assests/images/Signup-wire.png)
 
 ![books-wire](app/assest/images/books-wire.png)
 
@@ -171,13 +171,13 @@ A Book belongs_to to a User
 I followed Bruce's Requirement Checklist
 When I completed a task I check the appropiate checkbox
 
-![task1](app/assest/images/task1.png)
-![task1](app/assest/images/task1.png)
-![task1](app/assest/images/task1.png)
-![task1](app/assest/images/task1.png)
+![task1](app/assests/images/task1.png)
+![task1](app/assests/images/task1.png)
+![task1](app/assests/images/task1.png)
+![task1](app/assests/images/task1.png)
 
 
 ##### 10. ERD provided represents a normalised database model.
 
-![user_table](app/assest/images/bookshop-erd.png)
+![user_table](app/assests/images/bookshop-erd.png)
 
