@@ -58,7 +58,7 @@ class ListingsController < ApplicationController
                 name: "Donate to BookShop",
                 currency: 'aud',
                 quantity: 1,
-                amount: 2000
+                amount: 200
             }],
             payment_intent_data: {
                 metadata: {
