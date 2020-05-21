@@ -14,10 +14,10 @@ Seller's email: <strong><%= @listing.user.email %></strong>
 
 <% if current_user.id == @listing.user.id %>
 
-    <%= link_to "edit", edit_listing_path(@listing.id) %>
+    <%= link_to "Edit Book", edit_listing_path(@listing.id) %>
    
     <%= form_with model: @listing, local: true, method: "delete" do |form| %>
-        <%= submit_tag "delete" %>
+        <%= submit_tag "Delete Book" %>
     <% end %>
 <% end %>
 <br/>

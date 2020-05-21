@@ -1,5 +1,6 @@
 <div class=form-container>
-
+<h1> Add Book </h1>
+<br/>
 <%# display errors to user %>
 <% if listing.errors.any? %>
     <ul>
@@ -12,31 +13,31 @@
 
 <%= form_with model: listing, local: true do |form| %>
 
-<div>
+<div class="form-input">
     <%= form.label :title %>
     <%= form.text_field :title, value: listing.title %>
 </div>
 
 
-<div>
+<div class="form-input">
     <%= form.label :price %>
     <%= form.number_field :price, value: listing.price, min: 0 %>
 </div>
 
-<div>
+<div class="form-input">
     <%= form.label :description %>
     <%= form.text_area :description, value: listing.description %>
 </div>
 
 
-<div>
+<div class="form-input">
     <%= form.label :picture %>
     <%= form.file_field :picture, accept: "image/png, image/gif, image/jpeg,
     image/jpg" %>
 </div>
 
 <div>
-    <%= form.submit %>
+    <%= form.submit "Add Book" %>
 </div>
 
 <% end %>
