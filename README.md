@@ -171,10 +171,10 @@ A Book belongs_to to a User
 I followed Bruce's Requirement Checklist
 When I completed a task I check the appropiate checkbox
 
-![task1](app/assets/images/task1.png)
-![task1](app/assets/images/task1.png)
-![task1](app/assets/images/task1.png)
-![task1](app/assets/images/task1.png)
+![task1](app/assets/images/tasks1.png)
+![task2](app/assets/images/task2.png)
+![task3](app/assets/images/task3.png)
+![task4](app/assets/images/task4.png)
 
 
 ##### 10. ERD provided represents a normalised database model.
